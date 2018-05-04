@@ -140,16 +140,13 @@ public class GameViewTest  extends ApplicationTest {
         Platform.runLater(()->{
 
             view.btnEndGameClicked();
-            clickOn(End.getInstance().getInformationDialog().getInformationDialog().getDialogPane().lookupButton(ButtonType.OK));
+            clickOn(End.getInstance().getInformationDialog().getConfirmationDialog().getDialogPane().lookupButton(ButtonType.OK));
 
 
         });
         clickOn(400,400);
-        Parent root = Navigation.getInstance().getMain().getRoot();
-        System.out.print(GameView.getInstance().getRoot().getChildren());
 
-       // Node expected = Navigation.getInstance().getScreens().get(ScreenType.END).getRoot();
-       // Node actual =  Start.getInstance().getRoot().getChildren().get(1);
+       assertEquals(GameView.getInstance().getRoot(),Navigation.getInstance().getMain().getRoot());
 
     }
 }
